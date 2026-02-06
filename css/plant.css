@@ -1,0 +1,313 @@
+/* =========================================================
+   RESET
+========================================================= */
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* =========================================================
+   BODY / FUNDO
+========================================================= */
+body {
+  margin: 0;
+  padding: 20px;
+  background:
+    radial-gradient(1200px 600px at 20% -10%, rgba(57,229,140,0.08), transparent 60%),
+    radial-gradient(1000px 500px at 90% 10%, rgba(57,229,140,0.05), transparent 60%),
+    #050807;
+  color: #e9fff3;
+}
+
+/* =========================================================
+   GRID PRINCIPAL
+========================================================= */
+.plant-layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+    "header"
+    "alarms"
+    "summary"
+    "charts"
+    "devices";
+  gap: 22px;
+}
+
+.plant-header-card {
+  grid-area: header;
+  box-shadow:
+    inset 0 0 0 1px rgba(57,229,140,0.18),
+    0 22px 40px rgba(0,0,0,0.65);
+}
+
+.plant-alarms-card { grid-area: alarms; }
+.plant-summary-strip { grid-area: summary; }
+.plant-charts-grid { grid-area: charts; }
+.plant-devices-card { grid-area: devices; }
+
+/* =========================================================
+   CARD BASE
+========================================================= */
+.card {
+  background: linear-gradient(
+    180deg,
+    rgba(14,24,20,0.96),
+    rgba(7,12,10,0.96)
+  );
+  border-radius: 16px;
+  padding: 20px 24px;
+}
+
+/* =========================================================
+   HEADER GRID
+========================================================= */
+.header-grid {
+  display: grid;
+  grid-template-columns: 2.3fr 1.4fr;
+  gap: 28px;
+}
+
+/* =========================================================
+   HEADER USINA
+========================================================= */
+.header-main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.back-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  border: 1px solid rgba(255,255,255,0.08);
+  background: #0f1915;
+  color: #9fdac0;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.plant-name {
+  font-size: 22px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.plant-location {
+  font-size: 12px;
+  color: #7fdcb2;
+}
+
+.plant-kpis {
+  display: flex;
+  gap: 40px;
+  margin-top: 18px;
+}
+
+.kpi-label {
+  font-size: 11px;
+  color: #8be8c0;
+}
+
+.kpi strong {
+  display: block;
+  margin-top: 4px;
+  font-size: 18px;
+  font-weight: 600;
+  color: #39e58c;
+}
+
+/* =========================================================
+   WEATHER (INTACTO)
+========================================================= */
+.weather-station {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 18px 20px;
+  background: transparent;
+}
+
+.weather-title {
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.7px;
+  color: #b6e5cf;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+}
+
+.weather-item {
+  display: grid;
+  grid-template-columns: 18px 1fr auto;
+  gap: 12px;
+  padding: 10px 0;
+  font-size: 13px;
+}
+
+.weather-item strong {
+  color: #39e58c;
+}
+
+/* =========================================================
+   🔴 ALARMES — FIX DEFINITIVO
+========================================================= */
+.plant-alarms-card {
+  background: linear-gradient(
+    180deg,
+    rgba(14,24,20,0.96),
+    rgba(7,12,10,0.96)
+  );
+  border-radius: 16px;
+  padding: 20px 24px;
+  box-shadow:
+    inset 0 0 0 1px rgba(57,229,140,0.08),
+    0 14px 32px rgba(0,0,0,0.6);
+}
+
+.plant-alarms-card .card-title {
+  margin-bottom: 14px;
+}
+
+#plantActiveAlarms {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.alarm-row {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  gap: 16px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  font-size: 13px;
+  align-items: center;
+}
+
+.alarm-row.critical {
+  background: linear-gradient(
+    90deg,
+    rgba(255,80,80,0.22),
+    rgba(255,80,80,0.04)
+  );
+  border-left: 4px solid #ff4d4d;
+  color: #ffd6d6;
+}
+
+/* =========================================================
+   SUMMARY
+========================================================= */
+.plant-summary-strip {
+  background: linear-gradient(
+    180deg,
+    rgba(18,30,25,0.96),
+    rgba(10,18,15,0.96)
+  );
+  border-radius: 16px;
+  padding: 18px 22px;
+  box-shadow:
+    inset 0 0 0 1px rgba(57,229,140,0.12),
+    0 12px 28px rgba(0,0,0,0.6);
+}
+
+.summary-strip-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+}
+
+.summary-strip-item {
+  background: linear-gradient(
+    180deg,
+    rgba(20,34,28,0.95),
+    rgba(12,20,17,0.95)
+  );
+  border-radius: 12px;
+  padding: 16px 18px;
+  border: 1px solid rgba(57,229,140,0.18);
+}
+
+.summary-strip-item strong {
+  font-size: 20px;
+  color: #39e58c;
+}
+
+/* =========================================================
+   INVERSORES — ISOLADO (SEM VAZAR)
+========================================================= */
+.inverter-header,
+.inverter-row {
+  display: grid;
+  grid-template-columns: 14px 1.2fr 1fr 1fr 1fr 1fr 0.6fr 1.6fr;
+  gap: 12px;
+  padding: 12px 14px;
+  font-size: 13px;
+}
+
+.inverter-header {
+  color: #9adbb8;
+  text-transform: uppercase;
+  font-size: 11px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  margin-bottom: 6px;
+}
+
+.inverter-row {
+  border-radius: 10px;
+  background: rgba(255,255,255,0.03);
+  margin-bottom: 6px;
+}
+
+.status-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  margin-top: 4px;
+}
+
+.inverter-row.online .status-dot {
+  background: #39e58c;
+  box-shadow: 0 0 8px rgba(57,229,140,0.9);
+}
+
+.inverter-row.offline .status-dot {
+  background: #ff5c5c;
+}
+
+/* =========================================================
+   RELÉ (INTACTO)
+========================================================= */
+.device-row {
+  display: grid;
+  grid-template-columns: 14px 1fr auto;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: 10px;
+  background: rgba(255,255,255,0.03);
+}
+
+/* =========================================================
+   RESPONSIVO
+========================================================= */
+@media (max-width: 1100px) {
+  .header-grid,
+  .plant-charts-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .summary-strip-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+  
